@@ -1,0 +1,38 @@
+services:
+  web:
+    build: .
+    restart: always
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    environment:
+      - DJANGO_SECRET_KEY=your_secret_key_here
+      - DJANGO_DEBUG=False
+      - ALLOWED_HOSTS=localhost,127.0.0.1
+      - DB_NAME=ynab
+      - DB_USER=ynab_user
+      - DB_PASSWORD=ynab_password
+      - DB_HOST=db
+      - DB_PORT=3306
+    volumes:
+      - .:/YNAB
+    command: >
+      sh -c "python manage.py migrate &&
+             python manage.py runserver 0.0.0.0:8000"
+
+  db:
+    image: mysql:8.0
+    restart: always
+    environment:
+      - MYSQL_DATABASE=ynab
+      - MYSQL_USER=ynab_user
+      - MYSQL_PASSWORD=ynab_password
+      - MYSQL_ROOT_PASSWORD=root_password
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+volumes:
+  mysql_data:800
