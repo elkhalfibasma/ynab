@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YNAB App</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Style supplémentaire pour cette page uniquement */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            padding: 20px;
+            text-align: center;
+            animation: changeColor 5s infinite alternate;
+        }
+
+        @keyframes changeColor {
+            0% {
+                background-color: #333;
+                color: #fff;
+            }
+            50% {
+                background-color: #4CAF50;
+                color: #000;
+            }
+            100% {
+                background-color: #333;
+                color: #fff;
+            }
+        }
+
+        .header h1 {
+            margin: 0;
+        }
+
+        .navbar {
+            overflow: hidden;
+            background-color: #333;
+            margin-bottom: 20px;
+        }
+
+        .navbar a {
+            float: left;
+            display: block;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+
+        .navbar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .navbar a.active {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .image-container {
+            float: left;
+            margin-right: px;
+        }
+
+        .image-container img {
+            width: 600px;
+            height: auto;
+            display: block;
+        }
+
+        .image-container p {
+            font-size: 32px;
+            line-height: 5;
+        }
+
+        .text-container {
+    text-align: left;
+    margin-top: 100px; /* Pour pousser le texte un peu vers le bas */
+    padding: 50px;
+    background-color: 0; /* Arrière-plan blanc semi-transparent */
+    border-radius: 20px; /* Coins arrondis */
+    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.1); /* Ombre légère */
+}
+
+.text-container p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin: 80 auto; /* Centre le texte horizontalement */
+    max-width: 6000px;
+}
+.about{
+    padding: 50px;
+    margin-top: 50px;
+    background: #f9f9f9;
+}
+.about .card{
+    border-radius: 10px;
+}
+.about .card img{
+    border-radius: 10px;
+}
+.about h2{
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+.about p{
+    font-weight: 500;
+}
+#about-btn{
+    width: 150px;
+    height: 38px;
+    border: none;
+    border-radius: 5px;
+    background: #ffa500;
+    color: white;
+    letter-spacing: 2px;
+    font-weight: 550;
+    transition: 0.5s ease;
+    cursor: pointer;
+}
+#about-btn:hover{
+    width: 170px;
+}
+
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1>Bienvenue sur notre application YNAB</h1>
+</div>
+
+<div class="navbar">
+    <a class="active" href="#home">Accueil</a>
+    <a href="{% url 'informations' %}">À propos de nous</a>
+    <a href="{% url 'budgetisation' %}">Budgétisation</a>
+    
+    
+    <a href="#" class="dropbtn">Aide <i class="fas fa-caret-down"></i></a>
+    
+
+    
+    <a style="float: right;" href="{% url 'login' %}"><i class="fas fa-user btn btn-success"></i> Se connecter</a>
+    <a style="float: right;" href="{% url 'register' %}"><i class="fas fa-plus"></i> S'inscrire</a>
+</div>
+
+<div class="image-container">
+    <img src="https://t4.ftcdn.net/jpg/06/33/87/71/360_F_633877132_ZfoVUKMcmFjez2Z3bfNE5x5DX3B2gBHD.jpg"class="img-fluid" alt="Image">
+</div>
+
+<div class="text-container">
+    <p style="text-align: center; font-size: 19px; line-height: 1.9; margin: 12 auto; max-width: 7000px;">Un logiciel de budgétisation qui aide les utilisateurs à gérer leurs finances personnelles en leur permettant de créer des budgets, de suivre leurs dépenses et d'établir des objectifs financiers, les aidant ainsi à prendre le contrôle de leur argent.</p>
+</div>
+
+
+<div class="container">
+    <!-- Contenu de la page -->
+    {% block content %}
+    
+    {% endblock %}
+</div>
+
+
+</body>
+</html>

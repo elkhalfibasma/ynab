@@ -1,0 +1,85 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+
+body {
+  font-family: "Open Sans", sans-serif;
+  font-weight: bold;
+}
+
+.container {
+  height: auto;
+  width: 60%;
+  box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  border: 1px solid transparent;
+}
+
+.col-md {
+  margin-top: 5px;
+  padding: 10px;
+}
+
+section {
+  display: flex;
+  gap: 30px;
+  align-items: top;
+  justify-content: space-start;
+}
+
+.form-group {
+  height: auto;
+  width: 200px;
+  position: relative;
+}
+.panel {
+  height: 120px;
+}
+/* Expanses table */
+.container-sm {
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  padding: 5px;
+  box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  border: 1px solid transparent;
+}
+
+.container-sm p {
+  margin-top: -5px;
+}
+
+.table-wrapper {
+  height: 650px;
+  overflow: auto;
+}
+
+.alert {
+  padding: 5px;
+  background-color: #f44336;
+  color: white;
+  animation: hideAnimation 0s ease-in 5s;
+  animation-fill-mode: forwards;
+}
+@keyframes hideAnimation {
+  to {
+    visibility: hidden;
+    width: 0;
+    height: 0;
+  }
+}
+
+.closebtn {
+  margin-right: 10px;
+  margin-left: 25px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.closebtn:hover {
+  color: black;
+}

@@ -1,0 +1,109 @@
+{% extends "budget/base.html" %}
+{% block title %}Budget{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <h1 class="my-4">{{ user|title }} Budget Page</h1>
+            
+            <!-- Formulaire pour ajouter un élément -->
+            <form method="post" action="{% url 'budget' %}">
+                {% csrf_token %}
+                <!-- Formulaire pour ajouter un élément -->
+                {{ a_form.as_p }}
+                <button type="submit" name="add-item">Add Item</button>
+                
+                <!-- Formulaire pour ajouter un revenu -->
+                {{ b_form.as_p }}
+                <button type="submit" name="add-income">Add Income</button>
+            </form>
+        </div>
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header bg-success text-white">
+                    Total Income
+                </div>
+                <div class="card-body">
+                    <h4>{{ total_income|floatformat:2 }} DH</h4>
+                </div>
+            </div>
+            <div class="card mt-4">
+                <div class="card-header bg-danger text-white">
+                    Total Expenses
+                </div>
+                <div class="card-body">
+                    <h4>{{ total_cost|floatformat:2 }} DH</h4>
+                </div>
+            </div>
+            <div class="card mt-4">
+                <div class="card-header bg-warning text-white">
+                    Amount Left
+                </div>
+                <div class="card-body">
+                    <h4>{{ amount_left }} DH</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-md-12">
+            <h2>Expenses</h2>
+            <p>Your expenses ordered by the newest:</p>
+            <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                    {% if page_obj.has_previous %}
+                        
+                    {% endif %}
+                    {% for page in page_obj.paginator.page_range %}
+                        {% if page_obj.number == page %}
+                        {% else %}
+                            <li class="page-item"><a class="page-link" href="?page={{ page }}">{{ page }}</a></li>
+                        {% endif %}
+                    {% endfor %}
+                    {% if page_obj.has_next %}
+                        <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a></li>
+                        <li class="page-item"><a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">Last &raquo;</a></li>
+                    {% endif %}
+                </ul>
+            </nav>
+            {% if messages %}
+                <div class="alert alert-info mt-4">
+                    {% for message in messages %}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        <strong>{{ message }}</strong>
+                    {% endfor %}
+                </div>
+            {% endif %}
+            <div class="table-responsive mt-4">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Category</th>
+                            <th>Cost</th>
+                            <th>Date Added</th>
+                            <th>Item ID</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for expense_item in page_obj %}
+                            <tr>
+                                <td>{{ expense_item.category }}</td>
+                                <td>{{ expense_item.cost|floatformat:2 }} DH</td>
+                                <td>{{ expense_item.date_added|date:"d.m.Y" }}</td>
+                                <td>{{ expense_item.id }}</td>
+                                
+                                <td><a href="{% url 'delete-item' expense_item.id %}" class="btn btn-danger btn-sm">Delete</a></td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

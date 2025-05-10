@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YNAB - You Need A Budget</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-image: url('https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 800px;
+            padding: 50px;
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            animation: fadeIn 1s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            font-size: 57px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+            animation: slideInLeft 1s ease;
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .testimonial {
+            display: flex;
+            margin-bottom: 30px;
+            animation: slideInRight 1s ease;
+        }
+
+        .testimonial img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+
+        .testimonial p {
+            margin: 0;
+            font-style: italic;
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .cta {
+            text-align: center;
+            animation: slideInUp 1s ease;
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .cta a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta a:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <h1>Bienvenue sur YNAB - You Need A Budget</h1>
+
+        <div class="section">
+            <h2>Suivi des Dépenses</h2>
+            <p>Depuis sa création en 2004, YNAB s'est engagé à aider les individus et les familles à prendre le contrôle total de leur argent. Notre plateforme offre des fonctionnalités avancées pour un suivi précis des dépenses, une budgétisation personnalisée et des outils puissants pour atteindre les objectifs financiers.</p>
+        </div>
+
+        <div class="section">
+            <h2>Budgétisation Personnalisée</h2>
+            <p>Notre mission est de fournir les ressources nécessaires pour permettre à chacun de gérer efficacement son argent, de sortir de la dette et d'atteindre ses objectifs financiers. Avec YNAB, vous pouvez prendre des décisions éclairées sur vos finances et vivre une vie financière épanouie.</p>
+        </div>
+
+        <div class="section">
+            <h2>Témoignages des Utilisateurs</h2>
+            <div class="testimonial">
+                <img src="https://randomuser.me/api/portraits/women/1.jpg" alt="User 1">
+                <p>"YNAB a changé ma vie financière! Je suis maintenant plus consciente de mes dépenses et j'ai pu économiser pour mes vacances grâce à leurs outils de budgétisation." - Marie</p>
+            </div>
+
+            <div class="testimonial">
+                <img src="https://randomuser.me/api/portraits/men/1.jpg" alt="User 2">
+                <p>"Je recommande vivement YNAB à tous ceux qui veulent prendre le contrôle de leurs finances. C'est facile à utiliser et ça fonctionne vraiment!" - Pierre</p>
+            </div>
+
+            <div class="testimonial">
+                <img src="https://randomuser.me/api/portraits/women/2.jpg" alt="User 3">
+                <p>"Grâce à YNAB, j'ai réussi à économiser pour un avenir meilleur. C'est l'outil dont j'avais besoin pour prendre en main mes finances." - Sarah</p>
+            </div>
+        </div>
+
+        <div class="cta">
+            <a href="{%url 'inscription' %}">Commencez dès maintenant</a>
+        </div>
+    </div>
+</body>
+</html>
